@@ -3,11 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
+import { appRoutes } from './app.routes';
+
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('./abc/abc.module').then(m => m.AbcModule)
+  }
+];
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

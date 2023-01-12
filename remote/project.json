@@ -1,8 +1,8 @@
 {
-  "name": "shell",
-  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "name": "remote",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "./src",
+  "sourceRoot": "remote/src",
   "prefix": "shell",
   "targets": {
     "build": {
@@ -11,24 +11,24 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/shell",
-        "index": "./src/index.html",
-        "main": "./src/main.ts",
+        "outputPath": "dist/remote",
+        "index": "remote/src/index.html",
+        "main": "remote/src/main.ts",
         "polyfills": [
           "zone.js"
         ],
-        "tsConfig": "./tsconfig.app.json",
+        "tsConfig": "remote/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "./src/favicon.ico",
-          "./src/assets"
+          "remote/src/favicon.ico",
+          "remote/src/assets"
         ],
         "styles": [
-          "./src/styles.scss"
+          "remote/src/styles.scss"
         ],
         "scripts": [],
         "customWebpackConfig": {
-          "path": "webpack.config.js"
+          "path": "remote/webpack.config.js"
         },
         "commonChunk": false
       },
@@ -48,7 +48,7 @@
           ],
           "outputHashing": "all",
           "customWebpackConfig": {
-            "path": "webpack.prod.config.js"
+            "path": "remote/webpack.prod.config.js"
           }
         },
         "development": {
@@ -66,23 +66,23 @@
       "executor": "@nrwl/angular:webpack-dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "shell:build:production"
+          "browserTarget": "remote:build:production"
         },
         "development": {
-          "browserTarget": "shell:build:development"
+          "browserTarget": "remote:build:development"
         }
       },
       "defaultConfiguration": "development",
       "options": {
-        "port": 4200,
-        "publicHost": "http://localhost:4200"
+        "port": 3000,
+        "publicHost": "http://localhost:3000"
       }
     },
     "extract-i18n": {
       "executor": "ngx-build-plus:extract-i18n",
       "options": {
-        "browserTarget": "shell:build",
-        "extraWebpackConfig": "webpack.config.js"
+        "browserTarget": "remote:build",
+        "extraWebpackConfig": "remote/webpack.config.js"
       }
     },
     "lint": {
@@ -92,18 +92,18 @@
       ],
       "options": {
         "lintFilePatterns": [
-          "./src/**/*.ts",
-          "./src/**/*.html"
+          "remote/**/*.ts",
+          "remote/**/*.html"
         ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": [
-        "{workspaceRoot}/coverage/{projectName}"
+        "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "jest.config.app.ts",
+        "jestConfig": "remote/jest.config.ts",
         "passWithNoTests": true
       }
     }

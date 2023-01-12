@@ -5,10 +5,12 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
+    "@angular-architects/module-federation": "^15.0.3",
     "@angular/animations": "~15.0.0",
     "@angular/common": "~15.0.0",
     "@angular/compiler": "~15.0.0",
@@ -27,7 +29,7 @@
     "@angular-eslint/eslint-plugin": "~15.0.0",
     "@angular-eslint/eslint-plugin-template": "~15.0.0",
     "@angular-eslint/template-parser": "~15.0.0",
-    "@angular/cli": "~15.0.0",
+    "@angular/cli": "^15.0.5",
     "@angular/compiler-cli": "~15.0.0",
     "@angular/language-service": "~15.0.0",
     "@nrwl/cypress": "15.4.5",
@@ -46,6 +48,7 @@
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "jest-preset-angular": "~12.2.3",
+    "ngx-build-plus": "^15.0.0",
     "nx": "15.4.5",
     "prettier": "^2.6.2",
     "ts-jest": "28.0.5",
